@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git clone') {
+            steps{
+                git branch: 'main', url: 'https://github.com/MooJhingjit/SampleProject.git'
+            }
+        }
+        stage('Build') {
+            steps{
+                echo 'Build'
+            }
+        }
+        stage('Test') {
+            steps{
+                echo 'testing'
+            }
+        }
+    }
+   
+}

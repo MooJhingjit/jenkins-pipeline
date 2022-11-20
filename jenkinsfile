@@ -17,6 +17,11 @@ pipeline{
                 sh 'docker run  --name pipeline-app-build pipeline-app'
             }
         }
+         stage('Deploy') {
+            steps{
+                sh 'echo Deploy'
+            }
+        }
       
     }
    

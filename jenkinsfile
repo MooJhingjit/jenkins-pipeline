@@ -14,7 +14,7 @@ pipeline{
         stage('Build') {
             steps{
                 sh 'docker rm pipeline-app-build'
-                sh 'docker run  --name pipeline-app-build pipeline-app'
+                sh 'docker run --name pipeline-app-build  -v $(pwd):/app -v /app/node_modules pipeline-app'
             }
         }
          stage('Deploy') {

@@ -6,16 +6,17 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/MooJhingjit/SampleProject.git'
             }
         }
+        stage('Create Image') {
+            steps{
+                sh 'docker built -t pipeline-app .'
+            }
+        }
         stage('Build') {
             steps{
-                echo 'Build'
+                sh 'docker run -it --name pipeline-app-build pipeline-app'
             }
         }
-        stage('Test') {
-            steps{
-                echo 'testing'
-            }
-        }
+      
     }
    
 }
